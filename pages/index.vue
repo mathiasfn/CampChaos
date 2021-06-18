@@ -28,7 +28,24 @@
 </template>
 
 <script>
-export default {}
+if (process.server) {
+ import { Client } from "@notionhq/client"
+}
+/*
+const notion = new Client({ auth: process.env.NOTION_KEY })
+
+const databaseId = process.env.NOTION_TEST_DATABASE_ID*/
+
+export default {
+  created() {
+    console.log('created config', this.$config);
+  },
+  mounted() {
+    console.log('created config', this.$config);
+    console.log('process.env.NOTION_KEY', process.env.NOTION_KEY);
+    console.log('process.env.NOTION_TEST_DATABASE_ID', process.env.NOTION_TEST_DATABASE_ID);
+  }
+}
 </script>
 
 <style>

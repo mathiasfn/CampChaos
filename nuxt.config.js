@@ -40,5 +40,13 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+  },
+
+  publicRuntimeConfig: {
+    NOTION_TEST_DATABASE_ID: process.env.NOTION_TEST_DATABASE_ID
+  },
+
+  privateRuntimeConfig: {
+    NOTION_KEY: process.env.NOTION_KEY
   }
 }
