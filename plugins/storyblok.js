@@ -3,7 +3,7 @@ import Storyblok from 'storyblok-js-client'
 
 // init with access token
 const storyblok = new Storyblok({
-  accessToken: 'muaujtRYxYanFxNR5SgLYQtt',
+  accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
   cache: {
     clear: 'auto',
     type: 'memory'
