@@ -9,7 +9,6 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@notionhq/client": "^0.1.9",
     "@nuxtjs/axios": "^5.12.2",
     "core-js": "^3.6.5",
     "dgram": "^1.0.1",
