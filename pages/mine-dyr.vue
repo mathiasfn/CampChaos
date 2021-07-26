@@ -3,18 +3,18 @@
     <h1>Mine dyr</h1>
 
     <div class='grid grid-cols-4 gap-4'>
-      <AnimalCard v-for='animal in stories' :animal='animal.content' :key='animal.id'></AnimalCard>
+      <PigCard v-for='animal in stories' :animal='animal.content' :key='animal.id'></PigCard>
     </div>
   </div>
 </template>
 
 <script>
 
-import AnimalCard from '@/components/AnimalCard'
+import PigCard from '@/components/PigCard'
 
 export default {
   components: {
-    AnimalCard
+    PigCard
   },
   async asyncData({ params, $storyblok }) {
     const response = await $storyblok.get('cdn/stories', {

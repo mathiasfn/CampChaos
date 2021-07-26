@@ -16,6 +16,9 @@ export default {
     ]
   },
 
+  router: {
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     '@/assets/scss/main.scss'
@@ -23,6 +26,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    '~/plugins/moment.js',
     '~/plugins/storyblok.js'
   ],
 
@@ -33,7 +37,16 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/fontawesome'
   ],
+
+  fontawesome: {
+    component: 'fa',
+    icons: {
+      solid: true,
+      regular: true
+    }
+  },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
@@ -45,5 +58,10 @@ export default {
   axios: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+  },
+
+  publicRuntimeConfig: {
+    STORYBLOK_ACCESS_TOKEN: process.env.STORYBLOK_ACCESS_TOKEN,
+  }
 }

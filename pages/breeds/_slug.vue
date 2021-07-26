@@ -1,6 +1,9 @@
 <template>
   <div class="container grid gap-y-8">
-    <h1>Alle dyr</h1>
+    <div>
+      <h1>{{ breed.content.name }}</h1>
+      <div>{{ breed.content.description }}</div>
+    </div>
 
     <PigList :pigs='pigs' :breeds='breeds'></PigList>
   </div>
@@ -15,8 +18,12 @@ export default {
     PigList
   },
   async asyncData({ params, $storyblok }) {
+    const breedResponse = await $storyblok.get(`cdn/stories/breeds/${params.slug}`, {
+      'cv': new Date().getTime()
+    });
     const pigsPromise = $storyblok.get('cdn/stories', {
       'starts_with': 'pigs/',
+      'filter_query[breed][in]': breedResponse.data.story.uuid,
       'resolve_relations': 'pig.breed,pig.litter,pig.mother,pig.father',
       'cv': new Date().getTime()
     });
@@ -26,9 +33,11 @@ export default {
     });
 
     const [pigsResponse, breedsResponse] = await Promise.all([pigsPromise, breedsPromise]);
+
     return {
-      pigs: pigsResponse.data.stories,
+      breed: breedResponse.data.story,
       breeds: breedsResponse.data.stories,
+      pigs: pigsResponse.data.stories,
     }
   },
   created() {
@@ -37,8 +46,6 @@ export default {
     }
   },
   mounted() {
-  },
-  methods: {
   }
 }
 </script>

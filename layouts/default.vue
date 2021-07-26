@@ -1,10 +1,12 @@
 <template>
   <div class=''>
     <div class='min-h-screen flex flex-col'>
-      <div class='header bg-primary text-white'>
+      <div class='header sticky top-0 bg-primary text-white z-40'>
         <div class='container mx-auto p-4'>
-          <div class='flex justify-between position-relative'>
-            <h1>CampChaos</h1>
+          <div class='flex justify-between relative'>
+            <NuxtLink to='/'>
+              <h1 class='text-5xl'>CampChaos</h1>
+            </NuxtLink>
 
             <ul class='flex gap-10 items-center text-xl'>
               <li class='cursor-pointer'>
@@ -44,16 +46,10 @@
     </div>
 
     <div class='footer bg-gray-700'>
-      <div class='container mx-auto py-4 grid grid-cols-2 text-white'>
-        <div>
-          <div>Kontakt</div>
-          <div>Nordre ringvej 8, 2. tv</div>
-          <div>begger-008@hotmail.com</div>
-          <div>+45 27 91 51 83</div>
-        </div>
-        <div>
-          Følg med på <span>facebook</span>
-        </div>
+      <div class='container mx-auto py-4 text-center text-white'>
+        <span class='font-bold'>Nordre ringvej 8, 2. tv</span> -
+        <span class='font-bold'>begger-008@hotmail.com</span> -
+        <span class='font-bold'>+45 27 91 51 83</span>
       </div>
     </div>
   </div>
